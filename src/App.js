@@ -1,4 +1,5 @@
 import React from 'react';
+import Congrats from './Congrats';
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,6 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Congrats success={true}/>
     </div>
   );
 }

@@ -72,3 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## cli
 - $ yarn --dev add enzyme jest-enzyme enzyme-adapter-react-16
+- $ yarn add prop-types
+- $ yarn --dev add check-prop-types
