@@ -7,8 +7,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Congrats success={true}/>
-      <GuessedWords guessedWords={[{ guessedWord: 'train', letterMatchCount: 3 }]}/>
+      {/*<Congrats success={true}/>
+  <GuessedWords guessedWords={[{ guessedWord: 'train', letterMatchCount: 3 }]}/>*/}
     </div>
   );
 }
