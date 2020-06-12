@@ -1,8 +1,8 @@
 // TODO: check if destructuring these hooks really does create test problems
 import React from 'react';
-import Congrats from './Congrats';
-import GuessedWords from './GuessedWords';
-// import Input from './Input';
+// import Congrats from './Congrats';
+// import GuessedWords from './GuessedWords';
+import Input from './Input';
 import './App.css';
 import hookActions from './actions/hookActions';
 
@@ -36,11 +36,20 @@ function App() {
     []
   )
 
+  if (!state.secretWord) {
+    return (
+      <div className="container" data-test="spinner">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        <p>Loading secret word</p>
+      </div>
+    )
+  }
+
   return (
     <div className="container" data-test="component-app">
-      <h1>Jotto</h1> 
-      <Congrats success={false}/>
-      <GuessedWords guessedWords={[]}/>
+      <Input secretWord={state.secretWord} />
     </div>
   );
 }
