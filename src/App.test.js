@@ -16,8 +16,8 @@ const setup = () => {
   mockGetSecretWord.mockClear;
   hookActions.getSecretWord = mockGetSecretWord;
 
-  // use mount, becuase useEffect not called on 'shallow'
-  // https;//githiub/airbnb/enzyme/issues/2086
+  // use mount, because useEffect not called on 'shallow'
+  // https://github.com/airbnb/enzyme/issues/2086
   return mount(<App />);
 }
 
@@ -33,6 +33,18 @@ describe('getSecretWord calls', () => {
 
     // check to see if secret word was updated
     expect(mockGetSecretWord).toHaveBeenCalled();
+  });
+
+  test('secretWord does not update on App update', () => {
+    const wrapper = setup();
+    mockGetSecretWord.mockClear();
+
+    // wrapper.update() doesn't trigger update
+    // (issue forked from https://github/airbnb/enzyme/issues/2091)
+    wrapper.setProps();
+
+    // check to see if secret word was updated
+    expect(mockGetSecretWord).not.toHaveBeenCalled();
   });
 
 });

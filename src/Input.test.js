@@ -29,6 +29,7 @@ describe("state controlled input field", () => {
   
   beforeEach(() => {
     mockSetCurrentGuess.mockClear();
+    // according to Bonnie, cannot destructure useState on import for mocks 
     React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
     wrapper = setup();
   });

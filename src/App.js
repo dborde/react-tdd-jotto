@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// TODO: check if destructuring these hooks really does create test problems
+import React from 'react';
 import Congrats from './Congrats';
 import GuessedWords from './GuessedWords';
 // import Input from './Input';
@@ -18,12 +19,10 @@ function reducer(state, action) {
       return { ...state, secretWord: action.payload };
     default:
       throw new Error(`Invalid action type : ${action.type}`);
-  }
-  
+  } 
 }
 
 function App() {
-  // not destructuring useReducer on import for testing purposes
   const [state, dispatch] = React.useReducer(
     reducer,
     { secretWord: null }
@@ -36,9 +35,9 @@ function App() {
     () => { hookActions.getSecretWord(setSecretWord) },
     []
   )
-  
+
   return (
-    <div className="container" data-test="component-app">     
+    <div className="container" data-test="component-app">
       <h1>Jotto</h1> 
       <Congrats success={false}/>
       <GuessedWords guessedWords={[]}/>
