@@ -74,3 +74,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - $ yarn --dev add enzyme jest-enzyme enzyme-adapter-react-16
 - $ yarn add prop-types
 - $ yarn --dev add check-prop-types
+
+### Course Repository on GitHub
+[udemy-react-testing-projects](https://github.com/flyrightsister/udemy-react-testing-projects)
