@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import languageContext from './contexts/languageContext';
+import stringsModules from './helpers/strings';
+// import { getLetterMatchCount } from './helpers';
+
 const Input = ({ secretWord }) => {
-  // not destructuring useState in import above so that we can mock it.
+  const language = React.useContext(languageContext);
   const [currentGuess, setCurrentGuess] = React.useState('');
+  const [success, setSuccess] = React.useState(false);
 
   return (
     <div data-test="component-input">
@@ -12,7 +17,7 @@ const Input = ({ secretWord }) => {
           data-test="input-box"
           className="mb-2 mx-sm-3"
           type="text"
-          placeholder="enter guess"
+          placeholder={stringsModules.getStringByLanguage(language, 'guessInputPlaceholder')}
           value={currentGuess}
           onChange={(event) => setCurrentGuess(event.target.value)}
         />
@@ -22,12 +27,15 @@ const Input = ({ secretWord }) => {
           data-test="submit-button"
           onClick={(e) => {
             e.preventDefault();
+            if (currentGuess === secretWord) {
+              setSuccess(true);
+            }
             // clear input box
             setCurrentGuess('');
           }}
           className="btn btn-primary mb-2"
         >
-          Submit
+          {stringsModules.getStringByLanguage(language, 'submit')}
         </button>
       </form>
     </div>    

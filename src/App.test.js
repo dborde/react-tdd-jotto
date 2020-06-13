@@ -7,7 +7,6 @@ import hookActions from './actions/hookActions';
 
 const mockGetSecretWord = jest.fn();
 
-
 /**
  * Setup function for app components - https://jestjs.io/docs/en/mock-function-api
  * @param {string secretWord - desired secretWord state value for test}
@@ -19,7 +18,7 @@ const setup = (secretWord="party") => {
 
   const mockUseReducer = jest.fn()
     .mockReturnValue([
-      { secretWord },
+      { secretWord, language: 'en' },
       jest.fn()
     ]);
 

@@ -1,19 +1,16 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { checkProps, findByTestAttr } from '../test/testUtils';
 import Congrats from './Congrats';
 import languageContext from './contexts/languageContext';
 
-// Make sure to check if this changes in the app
-const defaultProps = { success: false };
-
 /**
- * Factory function to create a ShallowWrapper for the Congrats component.
- * @function setUp
- * @param {object} testValues - Context values specific to this setup.
- * @returns {ShallowWrapper}
- */
+* Factory function to create a ReactWrapper for the Congrats component.
+* @function setup
+* @param {object} testValues - contextValues specific to this setup.
+* @returns {ReactWrapper}
+*/
 const setup = ({ success, language }) => {
   // TODO put these defaults in args
   language = language || 'en';
