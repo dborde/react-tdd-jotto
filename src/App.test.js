@@ -13,7 +13,7 @@ const mockGetSecretWord = jest.fn();
  * @returns {ReactWrapper}
  */ 
 const setup = (secretWord="party") => {
-  mockGetSecretWord.mockClear;
+  mockGetSecretWord.mockClear();
   hookActions.getSecretWord = mockGetSecretWord;
 
   const mockUseReducer = jest.fn()
@@ -22,7 +22,7 @@ const setup = (secretWord="party") => {
       jest.fn()
     ]);
 
-    React.useReducer =  mockUseReducer;
+    React.useReducer = mockUseReducer;
 
   // use mount, because useEffect not called on 'shallow'
   // https://github.com/airbnb/enzyme/issues/2086
@@ -42,13 +42,12 @@ describe('getSecretWord calls', () => {
     // check to see if secret word was updated
     expect(mockGetSecretWord).toHaveBeenCalled();
   });
-
   test('secretWord does not update on App update', () => {
     const wrapper = setup();
     mockGetSecretWord.mockClear();
 
     // wrapper.update() doesn't trigger update
-    // (issue forked from https://github/airbnb/enzyme/issues/2091)
+    // (issue forked from https://github.com/airbnb/enzyme/issues/2091)
     wrapper.setProps();
 
     // check to see if secret word was updated

@@ -3,9 +3,12 @@ import React from 'react';
 import './App.css';
 import hookActions from './actions/hookActions';
 import languageContext from './contexts/languageContext';
+import successContext from './contexts/successContext';
 
-import LanguagePicker from './LanguagePicker';
+import Congrats from './Congrats';
+import GuessedWords from './GuessedWords';
 import Input from './Input';
+import LanguagePicker from './LanguagePicker';
 
 /**
  * reducer to update state, called automatically by dispatch
@@ -28,7 +31,7 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = React.useReducer(
     reducer,
-    { secretWord: null, language: 'en'}
+    { secretWord: null, language: 'en' }
   )
 
   const setSecretWord = (secretWord) =>
@@ -50,7 +53,7 @@ function App() {
         </div>
         <p>Loading secret word</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -58,7 +61,11 @@ function App() {
       <h1>Jotto</h1>
       <languageContext.Provider value={state.language}>
         <LanguagePicker setLanguage={setLanguage} />
-        <Input secretWord={state.secretWord} />
+        <successContext.SuccessProvider>
+          <Congrats />
+          <Input secretWord={state.secretWord} />
+        </successContext.SuccessProvider>
+        {/* <GuessedWords /> */}
       </languageContext.Provider>
     </div>
   );

@@ -1,9 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { checkProps, findByTestAttr } from '../test/testUtils';
+import { findByTestAttr } from '../test/testUtils';
 import Congrats from './Congrats';
 import languageContext from './contexts/languageContext';
+import successContext from './contexts/successContext';
 
 /**
 * Factory function to create a ReactWrapper for the Congrats component.
@@ -11,14 +12,16 @@ import languageContext from './contexts/languageContext';
 * @param {object} testValues - contextValues specific to this setup.
 * @returns {ReactWrapper}
 */
-const setup = ({ success, language }) => {
+const setup = ({ success = false, language='en' }) => {
   // TODO put these defaults in args
-  language = language || 'en';
-  success = success || false;
+  // language = language || 'en';
+  // success = success || false;
 
   return mount(
     <languageContext.Provider value={language}>
-      <Congrats success={success} />
+      <successContext.SuccessProvider value={[success, jest.fn()]}>
+        <Congrats />
+      </successContext.SuccessProvider>
     </languageContext.Provider>  
   );
 }
@@ -39,19 +42,15 @@ test('renders without error', () => {
   const component = findByTestAttr(wrapper, 'component-congrats');
   expect(component.length).toBe(1);
 });
-test('renders no text when `success` prop is false', () => {
+test('renders no text when `success` is false', () => {
   const wrapper = setup({ success: false });
   const component = findByTestAttr(wrapper, 'component-congrats');
   expect(component.text()).toBe('');
 });
-test('renders non-empty congratulation message', () => {
+test('renders non-empty congratulation message when `success` is true', () => {
   const wrapper = setup({ success: true });
   const message = findByTestAttr(wrapper, 'congrats-message');
   // expect(message.text().length).not.toBe(0);
   expect(message.length).toBe(1);
-});
-test('does not throw warning with expected props', () => {
-  const expectedProps = { success: false };
-  checkProps(Congrats, expectedProps);
 });
 
