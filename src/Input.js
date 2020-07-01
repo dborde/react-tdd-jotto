@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import successContext from './contexts/successContext';
 import languageContext from './contexts/languageContext';
 import stringsModules from './helpers/strings';
 // import { getLetterMatchCount } from './helpers';
@@ -8,7 +9,9 @@ import stringsModules from './helpers/strings';
 const Input = ({ secretWord }) => {
   const language = React.useContext(languageContext);
   const [currentGuess, setCurrentGuess] = React.useState('');
-  const [success, setSuccess] = React.useState(false);
+  const [success, setSuccess] = successContext.useSuccess();
+
+  if (success) { return null }
 
   return (
     <div data-test="component-input">
