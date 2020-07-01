@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import guessedWordsContext from './GuessedWordsContext';
 
-// a functional component that calls useSuccess fpor our tests
+// a functional component that calls useSuccess for our tests
 const FunctionalComponent = () => {
   guessedWordsContext.useGuessedWords();
   return <div />;
