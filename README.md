@@ -76,14 +76,75 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - $ yarn --dev add check-prop-types
 
 ## download and install randonWordServer
-https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/random-word-server
+- https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/random-word-server
 
 ## Start the random word server
-cd to ~/udemy-react-testing-projects/random-word-server
-npm start //Word server listening on port 3030!
+- cd to ~/udemy-react-testing-projects/random-word-server
+- npm start //Word server listening on port 3030!
 
-### Course Repository on GitHub
+## Course Repository on GitHub
 [udemy-react-testing-projects](https://github.com/flyrightsister/udemy-react-testing-projects)
 
-### Jotto-hooks-context challenges
-https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-hooks-context/README.md
+## Jotto-hooks-context challenges
+- https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-hooks-context/README.md
+
+## Course Resources
+- Course Resources: React Testing with Jest and Enzyme
+
+- Note: These are in the order they are presented in the course, with the exception of putting the course repo first.
+
+### GitHub Repository for the course
+- https://github.com/flyrightsister/udemy-react-testing-projects
+
+### Creating a React app from scratch
+- https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658
+
+- https://jestjs.io/docs/en/webpack.html#handling-static-assets
+
+### Configuring Jest
+- https://facebook.github.io/jest/docs/en/configuration.html
+
+### Enzyme shallow wrapper documentation
+- http://airbnb.io/enzyme/docs/api/shallow.html
+
+### Enzyme shallow wrapper .find() documentation
+- http://airbnb.io/enzyme/docs/api/ShallowWrapper/find.html
+
+### Enzyme shallow wrapper selector documentation
+- http://airbnb.io/enzyme/docs/api/selector.html
+
+### Enzyme shallow wrapper state documentation
+- http://airbnb.io/enzyme/docs/api/ShallowWrapper/setState.html
+- http://airbnb.io/enzyme/docs/api/ShallowWrapper/state.html
+
+### Jest expect API
+- https://facebook.github.io/jest/docs/en/expect.html
+
+### Bootstrap 4 “get started” docs
+- https://getbootstrap.com/docs/4.0/getting-started/introduction/
+
+### Enzyme shallow wrapper .prop() method
+- http://airbnb.io/enzyme/docs/api/ShallowWrapper/prop.html
+
+### Kent Dodds Blog Post for Context with Embedded State
+- https://kentcdodds.com/blog/application-state-management-with-react
+
+## JSDoc
+I mention JSDoc many times during the course; I find it a great way to document JavaScript code. You can find documentation at http://usejsdoc.org
+
+Common JSDoc features with React / Redux
+These are the JSDoc constructions I use the most with React / Redux:
+
+@module: http://usejsdoc.org/tags-module.html
+@function: http://usejsdoc.org/tags-function.html
+@param: http://usejsdoc.org/tags-param.html
+@returns: http://usejsdoc.org/tags-returns.html
+classes: http://usejsdoc.org/howto-es2015-classes.html
+Editor Add-Ons
+Most code editors have add-ons for JSDoc to make it easier to fill out, and they will create the outline (including parameters) for functions that have already been written. Here are examples for common editors:
+
+Sublime: https://github.com/spadgos/sublime-jsdocs
+Atom: https://atom.io/packages/docblockr
+VSCode: No plug-in necessary; just type /** on the line above your function and hit TAB; your JSDoc skeleton will appear. (https://code.visualstudio.com/docs/languages/javascript#_jsdoc-support)
+ESLint
+It's also helpful to configure your linter to remind you when your JSDoc is invalid, or you've forgotten it entirely. You might look into the valid-jsdoc and require-jsdoc rules for ESLint.
