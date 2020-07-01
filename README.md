@@ -75,5 +75,15 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - $ yarn add prop-types
 - $ yarn --dev add check-prop-types
 
+## download and install randonWordServer
+https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/random-word-server
+
+## Start the random word server
+cd to ~/udemy-react-testing-projects/random-word-server
+npm start //Word server listening on port 3030!
+
 ### Course Repository on GitHub
 [udemy-react-testing-projects](https://github.com/flyrightsister/udemy-react-testing-projects)
+
+### Jotto-hooks-context challenges
+https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto-hooks-context/README.md
